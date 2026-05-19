@@ -1,0 +1,306 @@
+{
+  "start": {
+    "background": "backgrounds/forest.png",
+    "character":  "chars/ephraim.png",
+    "name":       "???",
+    "text_list": [
+      "The foghorn's deafening, guttural roar vibrates deep within my chest.",
+      "A black-and-white background emerges from the darkness: the massive silhouette of a lighthouse, stretching into the dirty sky, and a heavy oak door.",
+      "The horn fades, replaced by the incessant, furious roar of the surf and the distant, angry cries of seagulls.",
+      "I stood at the threshold, my hands gripping the handles of my heavy suitcases in a death grip—my fingers had long since gone numb from the cold."
+    ],
+    "choices": [
+      {
+        "text": "Enter the Hall",
+        "next": "Hall_lighthouse_oldman"
+      }
+
+    ]
+  },
+
+  "Hall_lighthouse_oldman": {
+    "background": "backgrounds/forest.png",
+    "character":  "chars/ephraim.png",
+    "name":       "???",
+    "text_list": [
+      "Entering main hall, I noticed an old man sitting at an old, shabby sofa.",
+      "The sofa was all in tatters; the old fabric, once soft and slightly rough, now looked like the wool of a sheep that had just been sheared."
+    ],
+    "choices": [
+      {
+        "text": "Look at old man",
+        "next": "oldman",
+        "sanity_change": -10,
+        "anger_change": 15
+      }
+    ]
+  },
+
+  "oldman": {
+    "background": "backgrounds/forest_deep.png",
+    "character":  "chars/ephraim.png",
+    "name":       "???",
+    "text_list":[ "His skin resembled the tanned leather of an old saddle - darkened by the constant sun, deeply cut with wrinkles and cracks.",
+      "He looked at me with slightly narrowed eyes, able to spot a petrel in the pitch darkness."],
+    "choices": [
+      {
+        "text": "Who are you?",
+        "next": "greetings",
+        "sanity_change": -15
+      }
+    ]
+  },
+
+  "greetings": {
+    "background": "backgrounds/forest_deep.png",
+    "character":  "",
+    "name":       "Old man",
+    "text_list": ["-Howdy, kid! Look at you, they sent a helper after all, the earth hasn't forgotten shht!",
+      "I am Robert Muirhead, the senior keeper of this lighthouse.",
+      "-What's your name, boy?"],
+    "choices": [
+      {"text": "Winslow", "next": "name_boy"}
+    ]
+  },
+  "name_boy": {
+    "background": "backgrounds/forest_deep.png",
+    "character":  "",
+    "name":       "Moore",
+    "text_list": ["-My name is Joseph Moore, sir."],
+    "choices": [
+      {"text": "Next", "next": "hello"}
+    ]
+  },
+  "hello": {
+    "background": "backgrounds/forest_deep.png",
+    "character":  "",
+    "name":       "Old man",
+    "text_list": ["-Well, why are you standing on the threshold like an unhewn post, letting the wind shake you?",
+    "-Come on, drag your things to the dryer before the salt gets into your ports!"],
+    "choices": [
+      {"text": "Okay...", "next": "okay...",
+      "anger_change": 5},
+      {"text":  "Talk back", "next":  "talkback",
+      "sanity_change": -5}
+    ]
+  },
+  "okay...": {
+    "background": "backgrounds/hall.png",
+    "character":  "chars/moore.png",
+    "name":       "Moore",
+    "text_list": [
+      "-I'll be right back, sir.",
+      "The old man just grinned, muttering something into his beard as I turned around.",
+      "I picked up my heavy suitcases and headed down the dark corridor toward the barracks."
+    ],
+    "choices": [
+      {
+        "text": "Go to the Barracks",
+        "next": "barracks_obedient"
+      }
+    ]
+  },
+
+  "barracks_obedient": {
+    "background": "backgrounds/barracks.png",
+    "character":  "chars/moore.png",
+    "name":       "Moore",
+    "text_list": [
+      "The barracks room was small, cold, and smelled heavily of mold.",
+      "I carefully unpacked my prompter clothes, hanging them near the small stove to dry.",
+      "At the bottom of my bag, my hand brushed against my old iron lighter. A small reminder of the mainland.",
+      "I lay down on the hard straw mattress, staring at the wooden ceiling until sleep finally took over."
+    ],
+    "choices": [
+      {
+        "text": "Sleep until morning",
+        "next": "morning_start"
+      }
+    ]
+  },
+
+  "talkback": {
+    "background": "backgrounds/hall.png",
+    "character":  "chars/moore.png",
+    "name":       "Moore",
+    "text_list": [
+      "-I just got off the boat, sir. I need a moment to catch my breath.",
+      "Muirhead's eyes narrowed, his face darkening with instant irritation.",
+      "-Catch your breath?! You came here to work, not to lounge around, you arrogant whelp!",
+      "-Drop your bags in the barracks and get out of my sight. Pronto!"
+    ],
+    "choices": [
+      {
+        "text": "Go to the Barracks",
+        "next": "barracks_angry"
+      }
+    ]
+  },
+
+  "barracks_angry": {
+    "background": "backgrounds/barracks.png",
+    "character":  "chars/moore_angry.png",
+    "name":       "Moore",
+    "text_list": [
+      "I slammed the barracks door behind me, trembling with pure rage.",
+      "The room was disgusting. Damp, freezing, with two narrow cots that looked more like coffins.",
+      "Too exhausted to unpack or even take off my wet coat, I collapsed onto the straw mattress.",
+      "My eyes closed heavily as the sound of the crashing waves blurred into a dark, restless dream..."
+    ],
+    "choices": [
+      {
+        "text": "...",
+        "next": "rude_awakening"
+      }
+    ]
+  },
+
+  "rude_awakening": {
+    "background": "backgrounds/barracks_night.png",
+    "character":  "chars/oldman_angry.png",
+    "name":       "Muirhead",
+    "text_list": [
+      "...",
+      "...",
+      "BANG!",
+      "A heavy boot violently kicked the frame of my iron cot, shaking me awake in pitch darkness.",
+      "Muirhead was standing over me, holding a leaking lantern, his face twisted in disgust.",
+      "'-Get your boots off the sheets, you filthy animal! Sleeping in your wet gear? You're rotting my goddamn bunks!-'",
+      "'-Strip those clothes to the dryer now, or you'll sleep on the stone floor!-'"
+    ],
+    "choices": [
+      {
+        "text": "Strip clothes and try to sleep again",
+        "next": "morning_start",
+        "anger_change": 5,
+        "sanity_change": -5
+      }
+    ]
+  },
+
+  "morning_start": {
+    "background": "backgrounds/barracks.png",
+    "character":  "chars/moore.png",
+    "name":       "Moore",
+    "text_list": [
+      "BRRRRRRRRRRRRHN!",
+      "The morning arrived with the deafening, structural shake of the lighthouse foghorn.",
+      "My head felt like it was split in half. The air in the room was freezing.",
+      "It was time to face my first actual day of work. I put on my stiff, salt-crusted boots and walked out."
+    ],
+    "choices": [
+      {
+        "text": "Go to the Kitchen",
+        "next": "kitchen_first_entry"
+      }
+    ]
+  },
+"kitchen_first_entry": {
+    "background": "backgrounds/kitchen.png",
+    "character":  "chars/oldman_kitchen.png",
+    "name":       "Moore",
+    "text_list": [
+      "The kitchen was hot and suffocating. The smell of frying grease, stale tobacco, and old fish hit my nose.",
+      "Muirhead was already sitting at a stained wooden table, a grease-splattered bottle of some murky alcohol standing before him.",
+      "He filled two tin cups to the brim, the heavy metal clinking against the wood."
+    ],
+    "choices": [
+      {
+        "text": "Sit at the table",
+        "next": "the_first_toast"
+      }
+    ]
+  },
+
+  "the_first_toast": {
+    "background": "backgrounds/kitchen.png",
+    "character":  "chars/oldman_toast.png",
+    "name":       "Muirhead",
+    "text_list": [
+      "The old man raised his cup, his piercing, bloodshot eyes locking directly onto mine. His voice boomed, drowning out the distant wind outside:",
+      "'-Should death drag us into the swirling vortex tomorrow, let the Almighty hear the prayers of lost souls above the roar of the waves!'"
+    ],
+    "choices": [
+      {
+        "text": "Accept the toast and drink",
+        "next": "drink_toast",
+        "sanity_change": -5
+      },
+      {
+        "text": "Refuse to drink",
+        "next": "refuse_toast",
+        "anger_change": 15
+      }
+    ]
+  },
+
+  "drink_toast": {
+    "background": "backgrounds/kitchen.png",
+    "character":  "chars/moore.png",
+    "name":       "Moore",
+    "text_list": [
+      "I took the cup and swallowed the liquid. It tasted absolutely vile, like burning kerosene and rot. I choked back a cough.",
+      "Muirhead grinned, looking satisfied that his ritual wasn't interrupted."
+    ],
+    "choices": [
+      {
+        "text": "Next",
+        "next": "work_discussion"
+      }
+    ]
+  },
+
+  "refuse_toast": {
+    "background": "backgrounds/kitchen.png",
+    "character":  "chars/oldman_furious.png",
+    "name":       "Muirhead",
+    "text_list": [
+      "I left my cup untouched on the table.",
+      "Muirhead's grin vanished instantly. He slammed his fist down, making the tin cups rattle.",
+      "'-You dare look down on my hospitality, boy?! You think you're too good for a sailor's prayer?!'"
+    ],
+    "choices": [
+      {
+        "text": "Next",
+        "next": "work_discussion"
+      }
+    ]
+  },
+
+  "work_discussion": {
+    "background": "backgrounds/kitchen.png",
+    "character":  "chars/moore.png",
+    "name":       "Moore",
+    "text_list": [
+      "Wanting to change the subject before things got worse, I leaned forward.",
+      "'-I'm ready to take the night watch at the lantern tonight, sir.-'",
+      "Muirhead cut me off immediately, his face hardening.",
+      "'-The Light is MY job. Mine alone. You don't go up there, you hear me?-'",
+      "'-Your job is to do exactly as you're told. Drag the coal, tend the furnace, and haul the oil blocks. Let's see if you can even manage that!-'"
+    ],
+    "choices": [
+      {
+        "text": "Finish the conversation",
+        "next": "chapter1_end_screen"
+      }
+    ]
+  },
+
+  "chapter1_end_screen": {
+    "background": "backgrounds/black.png",
+    "character":  "",
+    "name":       "SYSTEM",
+    "text_list": [
+      "CHAPTER 1 COMPLETED.",
+      "The isolation begins. Your mind is still sharp, but the salt is already biting into your skin.",
+      "Are you ready to face the routine?"
+    ],
+    "choices": [
+      {
+        "text": "Begin Chapter 2: Routine and Omens",
+        "next": "tower_base_start"
+      }
+    ]
+  }
+
+}
