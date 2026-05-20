@@ -16,23 +16,32 @@ import os
 import sys
 import functools
 
+# ─────────────────────────────────────────────
+#  GAME SETTINGS
+# ─────────────────────────────────────────────
 WIDTH  = 1280
 HEIGHT = 720
 FPS    = 60
 
-COLOR_TEXT         = (230, 220, 200)
-COLOR_PANEL        = (10, 8, 20, 200)
-COLOR_BUTTON       = (30, 25, 50, 220)
-COLOR_BUTTON_HOVER = (70, 55, 110, 240)
-COLOR_BORDER       = (140, 100, 200)
-COLOR_SANITY       = (100, 200, 255)
-COLOR_ANGER        = (255, 80,  60)
-COLOR_BAR_BG       = (20, 15, 35, 180)
+COLOR_TEXT         = (220, 220, 220)
+COLOR_PANEL        = (0, 0, 0, 210)
+COLOR_BUTTON       = (0, 0, 0, 200)
+COLOR_BUTTON_HOVER = (40, 40, 40, 230)
+COLOR_BORDER       = (180, 180, 180)
+COLOR_SANITY       = (200, 200, 200)
+COLOR_ANGER        = (255, 255, 255)
+COLOR_BAR_BG       = (0, 0, 0, 180)
 
 FONT_PATH = None
 
 
-
+# ═══════════════════════════════════════════════════════════════
+#  DECORATOR
+#  @clamp(lo, hi) wraps a method so its return value is always
+#  clamped to [lo, hi]. Used on PlayerStats.apply() so sanity
+#  and anger can never go out of bounds — no if/min/max in the
+#  game loop itself.
+# ═══════════════════════════════════════════════════════════════
 def clamp(lo, hi):
     """
     Decorator factory.  Usage:
@@ -50,7 +59,12 @@ def clamp(lo, hi):
     return decorator
 
 
-
+# ═══════════════════════════════════════════════════════════════
+#  ENCAPSULATION — PlayerStats
+#  Groups sanity + anger together with the logic that changes
+#  them. The @clamp decorator enforces the valid range so the
+#  caller never has to think about it.
+# ═══════════════════════════════════════════════════════════════
 class PlayerStats:
     def __init__(self):
         self.sanity = 100
@@ -76,7 +90,19 @@ class PlayerStats:
         return self.anger >= 100
 
 
-
+# ═══════════════════════════════════════════════════════════════
+#  ABSTRACTION + INHERITANCE + POLYMORPHISM — Background classes
+#
+#  BaseBackground defines the interface every background must
+#  have: update(dt) and get_frame().
+#
+#  StaticBackground   — one PNG, no animation
+#  AnimatedBackground — PNG sequence with fps timer
+#
+#  The engine always calls bg.update(dt) and bg.get_frame().
+#  It doesn't know (and doesn't care) which subclass it has.
+#  That's polymorphism.
+# ═══════════════════════════════════════════════════════════════
 class BaseBackground:
     """Abstract base — defines the interface, doesn't implement it."""
 
@@ -147,6 +173,11 @@ class AnimatedBackground(BaseBackground):
         return self._frames[self._index]
 
 
+# ═══════════════════════════════════════════════════════════════
+#  ENCAPSULATION — TextState
+#  All typewriter state lives here, along with the methods
+#  that advance or skip it.
+# ═══════════════════════════════════════════════════════════════
 class TextState:
     def __init__(self, text, speed_ms=30):
         self.full_text   = text
@@ -177,9 +208,11 @@ class TextState:
         return self.full_text[:self.chars_shown]
 
 
-
-
-
+# ═══════════════════════════════════════════════════════════════
+#  ENCAPSULATION — Pager
+#  Manages multi-page text_list scenes.  Owns the list of pages
+#  and the TextState for the current one.
+# ═══════════════════════════════════════════════════════════════
 class Pager:
     def __init__(self, scene_data):
         if "text_list" in scene_data:
@@ -212,7 +245,9 @@ class Pager:
         return False
 
 
-
+# ═══════════════════════════════════════════════════════════════
+#  HELPER FUNCTIONS (unchanged from before)
+# ═══════════════════════════════════════════════════════════════
 def load_image(path, size=None, placeholder_color=(30, 30, 50)):
     if path and os.path.exists(path):
         img = pygame.image.load(path).convert_alpha()
@@ -245,7 +280,7 @@ def draw_shadowed_text(screen, text, font, x, y, color, shadow=(0,0,0), offset=2
     screen.blit(font.render(text, True, color),  (x, y))
 
 
-def draw_panel(screen, x, y, width, height, color_rgba, radius=12):
+def draw_panel(screen, x, y, width, height, color_rgba, radius=0):
     surf = pygame.Surface((width, height), pygame.SRCALPHA)
     pygame.draw.rect(surf, color_rgba, (0, 0, width, height), border_radius=radius)
     screen.blit(surf, (x, y))
@@ -259,34 +294,30 @@ def load_scenes(path="scenes.json"):
     return {}
 
 
-
+# ─────────────────────────────────────────────
+#  HUD
+# ─────────────────────────────────────────────
 def draw_stats(screen, stats: PlayerStats, font):
     pad_x, pad_y, bar_w, bar_h = 20, 16, 220, 10
-    draw_panel(screen, pad_x - 8, pad_y - 8, bar_w + 16, 72, COLOR_BAR_BG, radius=8)
+    draw_panel(screen, pad_x - 8, pad_y - 8, bar_w + 16, 72, COLOR_BAR_BG)
     draw_shadowed_text(screen,
         f"Sanity: {stats.sanity}%   |   Anger: {stats.anger}%",
         font, pad_x, pad_y, COLOR_TEXT)
     for i, (val, color) in enumerate([(stats.sanity, COLOR_SANITY), (stats.anger, COLOR_ANGER)]):
         by = pad_y + 30 + i * 18
-        pygame.draw.rect(screen, (40, 35, 60), (pad_x, by, bar_w, bar_h), border_radius=4)
+        pygame.draw.rect(screen, (40, 35, 60), (pad_x, by, bar_w, bar_h))
         filled = int(bar_w * val / 100)
         if filled > 0:
-            pygame.draw.rect(screen, color, (pad_x, by, filled, bar_h), border_radius=4)
+            pygame.draw.rect(screen, color, (pad_x, by, filled, bar_h))
 
 
-
-# scene render
-
+# ─────────────────────────────────────────────
+#  SCENE RENDERING
+# ─────────────────────────────────────────────
 def draw_scene(screen, scene_data, pager: Pager, bg: BaseBackground, fonts, mouse,
                stats: PlayerStats):
     # Background — polymorphic call; works for Static and Animated equally
     screen.blit(bg.get_frame(), (0, 0))
-
-    # Character sprite
-    char_path = scene_data.get("character", "")
-    if char_path:
-        screen.blit(load_image(char_path, (320, 480), (0,0,0)),
-                    (WIDTH // 2 - 160, HEIGHT - 480 - 120))
 
     # Dialogue panel
     panel_x, panel_y, panel_w, panel_h = 40, HEIGHT - 240, WIDTH - 80, 230
@@ -321,8 +352,8 @@ def draw_scene(screen, scene_data, pager: Pager, bg: BaseBackground, fonts, mous
             rect = pygame.Rect((WIDTH - btn_w) // 2, btn_y, btn_w, btn_h)
             active_buttons.append((rect, {"__action__": "next"}))
             btn_color = COLOR_BUTTON_HOVER if rect.collidepoint(mouse) else COLOR_BUTTON
-            draw_panel(screen, rect.x, btn_y, btn_w, btn_h, btn_color, radius=8)
-            pygame.draw.rect(screen, COLOR_BORDER, rect, width=1, border_radius=8)
+            draw_panel(screen, rect.x, btn_y, btn_w, btn_h, btn_color)
+            pygame.draw.rect(screen, COLOR_BORDER, rect, width=1)
             label = fonts["button"].render("Next  ▶", True, COLOR_TEXT)
             screen.blit(label, (rect.x + (btn_w - label.get_width()) // 2, btn_y + 10))
         else:
@@ -334,8 +365,8 @@ def draw_scene(screen, scene_data, pager: Pager, bg: BaseBackground, fonts, mous
                 rect = pygame.Rect(bx, btn_y, btn_w, btn_h)
                 active_buttons.append((rect, choice))
                 btn_color = COLOR_BUTTON_HOVER if rect.collidepoint(mouse) else COLOR_BUTTON
-                draw_panel(screen, bx, btn_y, btn_w, btn_h, btn_color, radius=8)
-                pygame.draw.rect(screen, COLOR_BORDER, rect, width=1, border_radius=8)
+                draw_panel(screen, bx, btn_y, btn_w, btn_h, btn_color)
+                pygame.draw.rect(screen, COLOR_BORDER, rect, width=1)
                 label = fonts["button"].render(choice["text"], True, COLOR_TEXT)
                 screen.blit(label, (bx + (btn_w - label.get_width()) // 2, btn_y + 10))
 
@@ -343,13 +374,15 @@ def draw_scene(screen, scene_data, pager: Pager, bg: BaseBackground, fonts, mous
     return active_buttons
 
 
-
-#  loop v razgovore
-
+# ─────────────────────────────────────────────
+#  MAIN LOOP
+# ─────────────────────────────────────────────
 def run_game():
+    global WIDTH, HEIGHT
     pygame.init()
     pygame.display.set_caption("Autonomous Ecosystem — Demo")
-    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+    WIDTH, HEIGHT = screen.get_size()
     clock  = pygame.time.Clock()
 
     if FONT_PATH and os.path.exists(FONT_PATH):
