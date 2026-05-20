@@ -1,8 +1,7 @@
 {
   "start": {
     "background": "backgrounds/forest.png",
-    "character":  "chars/ephraim.png",
-    "name":       "???",
+    "name": "???",
     "text_list": [
       "The foghorn's deafening, guttural roar vibrates deep within my chest.",
       "A black-and-white background emerges from the darkness: the massive silhouette of a lighthouse, stretching into the dirty sky, and a heavy oak door.",
@@ -10,101 +9,87 @@
       "I stood at the threshold, my hands gripping the handles of my heavy suitcases in a death grip—my fingers had long since gone numb from the cold."
     ],
     "choices": [
-      {
-        "text": "Enter the Hall",
-        "next": "Hall_lighthouse_oldman"
-      }
-
+      { "text": "Enter the Hall", "next": "Hall_lighthouse_oldman" }
     ]
   },
 
   "Hall_lighthouse_oldman": {
     "background": "backgrounds/forest.png",
-    "character":  "chars/ephraim.png",
-    "name":       "???",
+    "name": "???",
     "text_list": [
       "Entering main hall, I noticed an old man sitting at an old, shabby sofa.",
       "The sofa was all in tatters; the old fabric, once soft and slightly rough, now looked like the wool of a sheep that had just been sheared."
     ],
     "choices": [
-      {
-        "text": "Look at old man",
-        "next": "oldman",
-        "sanity_change": -10,
-        "anger_change": 15
-      }
+      { "text": "Look at old man", "next": "oldman", "sanity_change": -10, "anger_change": 15 }
     ]
   },
 
   "oldman": {
     "background": "backgrounds/forest_deep.png",
-    "character":  "chars/ephraim.png",
-    "name":       "???",
-    "text_list":[ "His skin resembled the tanned leather of an old saddle - darkened by the constant sun, deeply cut with wrinkles and cracks.",
-      "He looked at me with slightly narrowed eyes, able to spot a petrel in the pitch darkness."],
+    "name": "???",
+    "text_list": [
+      "His skin resembled the tanned leather of an old saddle - darkened by the constant sun, deeply cut with wrinkles and cracks.",
+      "He looked at me with slightly narrowed eyes, able to spot a petrel in the pitch darkness."
+    ],
     "choices": [
-      {
-        "text": "Who are you?",
-        "next": "greetings",
-        "sanity_change": -15
-      }
+      { "text": "Who are you?", "next": "greetings", "sanity_change": -15 }
     ]
   },
 
   "greetings": {
     "background": "backgrounds/forest_deep.png",
-    "character":  "",
-    "name":       "Old man",
-    "text_list": ["-Howdy, kid! Look at you, they sent a helper after all, the earth hasn't forgotten shht!",
+    "name": "Old man",
+    "text_list": [
+      "-Howdy, kid! Look at you, they sent a helper after all, the earth hasn't forgotten shht!",
       "I am Robert Muirhead, the senior keeper of this lighthouse.",
-      "-What's your name, boy?"],
+      "-What's your name, boy?"
+    ],
     "choices": [
-      {"text": "Winslow", "next": "name_boy"}
+      { "text": "Winslow", "next": "name_boy" }
     ]
   },
+
   "name_boy": {
     "background": "backgrounds/forest_deep.png",
-    "character":  "",
-    "name":       "Moore",
-    "text_list": ["-My name is Joseph Moore, sir."],
+    "name": "Moore",
+    "text_list": [
+      "-My name is Joseph Moore, sir."
+    ],
     "choices": [
-      {"text": "Next", "next": "hello"}
+      { "text": "Next", "next": "hello" }
     ]
   },
+
   "hello": {
     "background": "backgrounds/forest_deep.png",
-    "character":  "",
-    "name":       "Old man",
-    "text_list": ["-Well, why are you standing on the threshold like an unhewn post, letting the wind shake you?",
-    "-Come on, drag your things to the dryer before the salt gets into your ports!"],
+    "name": "Old man",
+    "text_list": [
+      "-Well, why are you standing on the threshold like an unhewn post, letting the wind shake you?",
+      "-Come on, drag your things to the dryer before the salt gets into your ports!"
+    ],
     "choices": [
-      {"text": "Okay...", "next": "okay...",
-      "anger_change": 5},
-      {"text":  "Talk back", "next":  "talkback",
-      "sanity_change": -5}
+      { "text": "Okay...", "next": "okay...", "anger_change": 5 },
+      { "text": "Talk back", "next": "talkback", "sanity_change": -5 }
     ]
   },
+
   "okay...": {
     "background": "backgrounds/hall.png",
-    "character":  "chars/moore.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "-I'll be right back, sir.",
       "The old man just grinned, muttering something into his beard as I turned around.",
       "I picked up my heavy suitcases and headed down the dark corridor toward the barracks."
     ],
     "choices": [
-      {
-        "text": "Go to the Barracks",
-        "next": "barracks_obedient"
-      }
+      { "text": "Go to the Barracks", "next": "barracks_obedient" }
     ]
   },
 
   "barracks_obedient": {
     "background": "backgrounds/barracks.png",
-    "character":  "chars/moore.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "The barracks room was small, cold, and smelled heavily of mold.",
       "I carefully unpacked my prompter clothes, hanging them near the small stove to dry.",
@@ -112,17 +97,13 @@
       "I lay down on the hard straw mattress, staring at the wooden ceiling until sleep finally took over."
     ],
     "choices": [
-      {
-        "text": "Sleep until morning",
-        "next": "morning_start"
-      }
+      { "text": "Sleep until morning", "next": "morning_start" }
     ]
   },
 
   "talkback": {
     "background": "backgrounds/hall.png",
-    "character":  "chars/moore.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "-I just got off the boat, sir. I need a moment to catch my breath.",
       "Muirhead's eyes narrowed, his face darkening with instant irritation.",
@@ -130,17 +111,13 @@
       "-Drop your bags in the barracks and get out of my sight. Pronto!"
     ],
     "choices": [
-      {
-        "text": "Go to the Barracks",
-        "next": "barracks_angry"
-      }
+      { "text": "Go to the Barracks", "next": "barracks_angry" }
     ]
   },
 
   "barracks_angry": {
     "background": "backgrounds/barracks.png",
-    "character":  "chars/moore_angry.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "I slammed the barracks door behind me, trembling with pure rage.",
       "The room was disgusting. Damp, freezing, with two narrow cots that looked more like coffins.",
@@ -148,17 +125,13 @@
       "My eyes closed heavily as the sound of the crashing waves blurred into a dark, restless dream..."
     ],
     "choices": [
-      {
-        "text": "...",
-        "next": "rude_awakening"
-      }
+      { "text": "...", "next": "rude_awakening" }
     ]
   },
 
   "rude_awakening": {
     "background": "backgrounds/barracks_night.png",
-    "character":  "chars/oldman_angry.png",
-    "name":       "Muirhead",
+    "name": "Muirhead",
     "text_list": [
       "...",
       "...",
@@ -169,19 +142,13 @@
       "'-Strip those clothes to the dryer now, or you'll sleep on the stone floor!-'"
     ],
     "choices": [
-      {
-        "text": "Strip clothes and try to sleep again",
-        "next": "morning_start",
-        "anger_change": 5,
-        "sanity_change": -5
-      }
+      { "text": "Strip clothes and try to sleep again", "next": "morning_start", "anger_change": 5, "sanity_change": -5 }
     ]
   },
 
   "morning_start": {
     "background": "backgrounds/barracks.png",
-    "character":  "chars/moore.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "BRRRRRRRRRRRRHN!",
       "The morning arrived with the deafening, structural shake of the lighthouse foghorn.",
@@ -189,88 +156,64 @@
       "It was time to face my first actual day of work. I put on my stiff, salt-crusted boots and walked out."
     ],
     "choices": [
-      {
-        "text": "Go to the Kitchen",
-        "next": "kitchen_first_entry"
-      }
+      { "text": "Go to the Kitchen", "next": "kitchen_first_entry" }
     ]
   },
-"kitchen_first_entry": {
+
+  "kitchen_first_entry": {
     "background": "backgrounds/kitchen.png",
-    "character":  "chars/oldman_kitchen.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "The kitchen was hot and suffocating. The smell of frying grease, stale tobacco, and old fish hit my nose.",
       "Muirhead was already sitting at a stained wooden table, a grease-splattered bottle of some murky alcohol standing before him.",
       "He filled two tin cups to the brim, the heavy metal clinking against the wood."
     ],
     "choices": [
-      {
-        "text": "Sit at the table",
-        "next": "the_first_toast"
-      }
+      { "text": "Sit at the table", "next": "the_first_toast" }
     ]
   },
 
   "the_first_toast": {
     "background": "backgrounds/kitchen.png",
-    "character":  "chars/oldman_toast.png",
-    "name":       "Muirhead",
+    "name": "Muirhead",
     "text_list": [
       "The old man raised his cup, his piercing, bloodshot eyes locking directly onto mine. His voice boomed, drowning out the distant wind outside:",
       "'-Should death drag us into the swirling vortex tomorrow, let the Almighty hear the prayers of lost souls above the roar of the waves!'"
     ],
     "choices": [
-      {
-        "text": "Accept the toast and drink",
-        "next": "drink_toast",
-        "sanity_change": -5
-      },
-      {
-        "text": "Refuse to drink",
-        "next": "refuse_toast",
-        "anger_change": 15
-      }
+      { "text": "Accept the toast and drink", "next": "drink_toast", "sanity_change": -5 },
+      { "text": "Refuse to drink", "next": "refuse_toast", "anger_change": 15 }
     ]
   },
 
   "drink_toast": {
     "background": "backgrounds/kitchen.png",
-    "character":  "chars/moore.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "I took the cup and swallowed the liquid. It tasted absolutely vile, like burning kerosene and rot. I choked back a cough.",
       "Muirhead grinned, looking satisfied that his ritual wasn't interrupted."
     ],
     "choices": [
-      {
-        "text": "Next",
-        "next": "work_discussion"
-      }
+      { "text": "Next", "next": "work_discussion" }
     ]
   },
 
   "refuse_toast": {
     "background": "backgrounds/kitchen.png",
-    "character":  "chars/oldman_furious.png",
-    "name":       "Muirhead",
+    "name": "Muirhead",
     "text_list": [
       "I left my cup untouched on the table.",
       "Muirhead's grin vanished instantly. He slammed his fist down, making the tin cups rattle.",
       "'-You dare look down on my hospitality, boy?! You think you're too good for a sailor's prayer?!'"
     ],
     "choices": [
-      {
-        "text": "Next",
-        "next": "work_discussion"
-      }
+      { "text": "Next", "next": "work_discussion" }
     ]
   },
 
   "work_discussion": {
     "background": "backgrounds/kitchen.png",
-    "character":  "chars/moore.png",
-    "name":       "Moore",
+    "name": "Moore",
     "text_list": [
       "Wanting to change the subject before things got worse, I leaned forward.",
       "'-I'm ready to take the night watch at the lantern tonight, sir.-'",
@@ -279,28 +222,46 @@
       "'-Your job is to do exactly as you're told. Drag the coal, tend the furnace, and haul the oil blocks. Let's see if you can even manage that!-'"
     ],
     "choices": [
-      {
-        "text": "Finish the conversation",
-        "next": "chapter1_end_screen"
-      }
+      { "text": "Finish the conversation", "next": "chapter1_end_screen" }
     ]
   },
 
   "chapter1_end_screen": {
     "background": "backgrounds/black.png",
-    "character":  "",
-    "name":       "SYSTEM",
+    "name": "SYSTEM",
     "text_list": [
       "CHAPTER 1 COMPLETED.",
       "The isolation begins. Your mind is still sharp, but the salt is already biting into your skin.",
       "Are you ready to face the routine?"
     ],
     "choices": [
-      {
-        "text": "Begin Chapter 2: Routine and Omens",
-        "next": "tower_base_start"
-      }
+      { "text": "Begin Chapter 2: Routine and Omens", "next": "tower_base_start" }
+    ]
+  },
+
+  "madness_end": {
+    "background": "backgrounds/black.png",
+    "name": "SYSTEM",
+    "text_list": [
+      "NEURAL CIRCUIT FAILURE.",
+      "The mind unravels. There is nothing left but the sound of the waves.",
+      "..."
+    ],
+    "choices": [
+      { "text": "Start over", "next": "start" }
+    ]
+  },
+
+  "rage_end": {
+    "background": "backgrounds/black.png",
+    "name": "SYSTEM",
+    "text_list": [
+      "RAGE UNCONTROLLED.",
+      "You lost yourself to it. The lighthouse doesn't care.",
+      "..."
+    ],
+    "choices": [
+      { "text": "Start over", "next": "start" }
     ]
   }
-
 }
