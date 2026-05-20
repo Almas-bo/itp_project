@@ -46,7 +46,7 @@
       "-What's your name, boy?"
     ],
     "choices": [
-      { "text": "Winslow", "next": "name_boy" }
+      { "text": "Moore", "next": "name_boy" }
     ]
   },
 
