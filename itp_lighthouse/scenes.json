@@ -1,6 +1,6 @@
 {
   "start": {
-    "background": "backgrounds/forest.png",
+    "background": "lighthouse.png",
     "name": "???",
     "text_list": [
       "The foghorn's deafening, guttural roar vibrates deep within my chest.",
@@ -14,7 +14,7 @@
   },
 
   "Hall_lighthouse_oldman": {
-    "background": "backgrounds/forest.png",
+    "background": "hall_ded.png",
     "name": "???",
     "text_list": [
       "Entering main hall, I noticed an old man sitting at an old, shabby sofa.",
@@ -26,7 +26,7 @@
   },
 
   "oldman": {
-    "background": "backgrounds/forest_deep.png",
+    "background": "ded.png",
     "name": "???",
     "text_list": [
       "His skin resembled the tanned leather of an old saddle - darkened by the constant sun, deeply cut with wrinkles and cracks.",
@@ -38,7 +38,7 @@
   },
 
   "greetings": {
-    "background": "backgrounds/forest_deep.png",
+    "background": "ded.png",
     "name": "Old man",
     "text_list": [
       "-Howdy, kid! Look at you, they sent a helper after all, the earth hasn't forgotten shht!",
@@ -51,7 +51,7 @@
   },
 
   "name_boy": {
-    "background": "backgrounds/forest_deep.png",
+    "background": "ded.png",
     "name": "Moore",
     "text_list": [
       "-My name is Joseph Moore, sir."
@@ -62,7 +62,7 @@
   },
 
   "hello": {
-    "background": "backgrounds/forest_deep.png",
+    "background": "ded.png",
     "name": "Old man",
     "text_list": [
       "-Well, why are you standing on the threshold like an unhewn post, letting the wind shake you?",
@@ -75,7 +75,7 @@
   },
 
   "okay...": {
-    "background": "backgrounds/hall.png",
+    "background": "",
     "name": "Moore",
     "text_list": [
       "-I'll be right back, sir.",
@@ -88,7 +88,7 @@
   },
 
   "barracks_obedient": {
-    "background": "backgrounds/barracks.png",
+    "background": "barracks.png",
     "name": "Moore",
     "text_list": [
       "The barracks room was small, cold, and smelled heavily of mold.",
@@ -102,7 +102,7 @@
   },
 
   "talkback": {
-    "background": "backgrounds/hall.png",
+    "background": "ded.png",
     "name": "Moore",
     "text_list": [
       "-I just got off the boat, sir. I need a moment to catch my breath.",
@@ -116,7 +116,7 @@
   },
 
   "barracks_angry": {
-    "background": "backgrounds/barracks.png",
+    "background": "barracks.png",
     "name": "Moore",
     "text_list": [
       "I slammed the barracks door behind me, trembling with pure rage.",
@@ -130,7 +130,7 @@
   },
 
   "rude_awakening": {
-    "background": "backgrounds/barracks_night.png",
+    "background": "black.png",
     "name": "Muirhead",
     "text_list": [
       "...",
@@ -147,7 +147,7 @@
   },
 
   "morning_start": {
-    "background": "backgrounds/barracks.png",
+    "background": "barracks_night.png",
     "name": "Moore",
     "text_list": [
       "BRRRRRRRRRRRRHN!",
@@ -161,7 +161,7 @@
   },
 
   "kitchen_first_entry": {
-    "background": "backgrounds/kitchen.png",
+    "background": "kitchen_night.png",
     "name": "Moore",
     "text_list": [
       "The kitchen was hot and suffocating. The smell of frying grease, stale tobacco, and old fish hit my nose.",
@@ -174,7 +174,7 @@
   },
 
   "the_first_toast": {
-    "background": "backgrounds/kitchen.png",
+    "background": "kitchen_night.png",
     "name": "Muirhead",
     "text_list": [
       "The old man raised his cup, his piercing, bloodshot eyes locking directly onto mine. His voice boomed, drowning out the distant wind outside:",
@@ -187,7 +187,7 @@
   },
 
   "drink_toast": {
-    "background": "backgrounds/kitchen.png",
+    "background": "kitchen_night.png",
     "name": "Moore",
     "text_list": [
       "I took the cup and swallowed the liquid. It tasted absolutely vile, like burning kerosene and rot. I choked back a cough.",
@@ -199,7 +199,7 @@
   },
 
   "refuse_toast": {
-    "background": "backgrounds/kitchen.png",
+    "background": "kitchen_night.png",
     "name": "Muirhead",
     "text_list": [
       "I left my cup untouched on the table.",
@@ -212,7 +212,7 @@
   },
 
   "work_discussion": {
-    "background": "backgrounds/kitchen.png",
+    "background": "kitchen_night.png",
     "name": "Moore",
     "text_list": [
       "Wanting to change the subject before things got worse, I leaned forward.",
@@ -227,21 +227,21 @@
   },
 
   "chapter1_end_screen": {
-    "background": "backgrounds/black.png",
-    "name": "SYSTEM",
+    "background": "black.png",
+    "name": "",
     "text_list": [
       "CHAPTER 1 COMPLETED.",
       "The isolation begins. Your mind is still sharp, but the salt is already biting into your skin.",
       "Are you ready to face the routine?"
     ],
     "choices": [
-      { "text": "Begin Chapter 2: Routine and Omens", "next": "tower_base_start" }
+      { "text": "Begin Chapter 2: Routine and Omens", "next": "start" }
     ]
   },
 
   "madness_end": {
-    "background": "backgrounds/black.png",
-    "name": "SYSTEM",
+    "background": "black.png",
+    "name": "",
     "text_list": [
       "NEURAL CIRCUIT FAILURE.",
       "The mind unravels. There is nothing left but the sound of the waves.",
@@ -253,8 +253,8 @@
   },
 
   "rage_end": {
-    "background": "backgrounds/black.png",
-    "name": "SYSTEM",
+    "background": "black.png",
+    "name": "",
     "text_list": [
       "RAGE UNCONTROLLED.",
       "You lost yourself to it. The lighthouse doesn't care.",
